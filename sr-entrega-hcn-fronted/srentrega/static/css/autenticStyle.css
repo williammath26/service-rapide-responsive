@@ -1,0 +1,232 @@
+body {
+    /*background-color: #0080c8;*/
+    /*overflow: hidden;*/
+    font-family: 'Rubik';font-size: 22px;
+}
+
+.container-fluid {
+    /*position: absolute;*/
+    /*padding: 20px;*/
+    /*background: linear-gradient(to bottom right, #0f3057, #0080c8);*/
+    /*margin: auto;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*height: 100%;*/
+}
+
+.row-container {
+    /*max-width: 900px;*/
+    /*background-color: rgba(255, 255, 255, 0.149);*/
+    /*padding: 4rem;*/
+    /*border-radius: 10px;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+
+}
+
+h3 {
+    text-align: center;
+    color: white;
+    margin: 2rem;
+}
+
+.img-fluid {
+    max-width: 400px;
+    margin: auto;
+}
+
+/*input[type="text"] {*/
+/*    text-align: center;*/
+/*    font-size: 15px;*/
+/*    !*height: 1rem;*!*/
+/*    margin-bottom: 5px;*/
+/*    width: 40%;*/
+/*}*/
+
+/*input[type="text"]::placeholder:focus{*/
+/*    font-size: 5px;*/
+/*}*/
+
+/*input[type="password"] {*/
+/*    text-align: center;*/
+/*    font-size: 15px;*/
+/*    height: 2rem;*/
+/*    margin-bottom: 2rem;*/
+/*}*/
+
+/*input[type="date"]{*/
+/*    font-size: 15px;*/
+/*    height: 2rem;*/
+/*}*/
+
+
+.btn {
+    font-weight: bolder;
+    font-size: 15px;
+    background-color: #fec606;
+    height: 2rem;
+    width: 300px;
+    margin-top: 1.5rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.titulo-label {
+    color: white;
+    font-size: 15px;
+}
+
+option {
+    text-align: center;
+    font-size: 15px;
+}
+
+select {
+    font-size: 15px;
+    height: 2rem;
+}
+
+select:focus {
+    font-size: 15px;
+}
+
+select::placeholder {
+    font-size: 15px;
+}
+
+
+.row-social{
+    padding: 15px 0px;
+    background-color: #59C4DB;
+    color: #FFFFFF;
+}
+.row-footer-ass{
+    background-color: #59C4DB;
+    padding: 40px 0px 200px 20px;
+    color: #FFFFFF;
+}
+
+.row-header{
+    background: linear-gradient( #0785EB, #7DE0F3);
+    height: 185px
+}
+
+.row-header-img{
+    background: linear-gradient( #2A9293, #1675AB);
+    height: auto;
+}
+
+.header-img-1{
+    background-color: #FFFFFF;
+    padding: 0%;
+    height: 450px;
+}
+
+.header-img-2{
+    padding: 0%;
+    border-radius: 0px 32.31px 32.31px 0px;
+    opacity: 0px;
+}
+
+.row-form{
+    background-color: #f1f3f3;
+    /*width: Hug (520px)px;*/
+    /*width: 80%;*/
+    /*height: Hug (324px)px;*/
+    /*top: 836px;*/
+    /*left: 700px;*/
+    gap: 56px;
+    opacity: 0px;
+    /*padding: 5% 20% 10% 20%;*/
+    /*margin-left: 10%;*/
+    /*margin-right: 10%;*/
+}
+
+.form-texto{
+    color: #59C4DB; font-family: Rubik;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 47.4px;
+    text-align: left;
+}
+
+.form-input{
+    width: 80%;
+    max-width: 500px;
+    /*height: Hug(50px)px;*/
+
+    /*padding: 12.5px 16px 12.5px 16px;*/
+    /*gap: 10px;*/
+    border-radius: 10px;
+    border: 3px 0px 0px 0px;
+    opacity: 0px;
+}
+
+.form-reset{
+    font-family: Rubik;
+    font-size: 19px;
+    /*font-weight: 400;*/
+    /*line-height: 24.89px;*/
+    /*text-align: left;*/
+    color: #59C4DB;
+    padding-right: 30px;
+}
+
+.form-button{
+    width: Hug (146px)px;
+    height: Hug (42px)px;
+    padding: 10.5px 30px 10.5px 30px;
+    gap: 10px;
+    border-radius: 10px 10px 10px 10px;
+    opacity: 0px;
+    background: #59C4DB;
+    color: #FFFFFF;
+}
+
+.social-item{
+    color: #FFFFFF;
+    padding: 20px 30px;
+}
+.footer-patroci{
+    padding: 20px 0px;
+}
+
+.footer-img{
+    padding: 0 10px;
+}
+
+.btn-local{
+    padding: 5px 30px 5px 30px;
+    gap: 10px;
+    border-radius: 50px;
+    opacity: 0px;
+    background: #FFFFFF;
+    color: #59C4DB;
+    margin-top: 20px;
+}
+
+
+.form-input-recupera{
+    width: 100%;
+    /*text-align: center;*/
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.form-date-recupera{
+    /*width: 100%;*/
+    /*text-align: center;*/
+    border-radius: 4px;
+    margin: 5px;
+}

@@ -1,0 +1,208 @@
+<DOCTYPE html> 
+    {% load static %}
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resultados</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/resultExames.css' %}">
+        <script src="{% static 'js/gl.js'%}"></script>
+    
+        <!--Rede Social-->
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    
+        <!-- Adição dos scripts e estilos da barra de progresso -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/progessbar/styleBarraProgresso.css' %}" />
+        <script src="{% static 'js/progress/jquery-1.10.2.js' %}"></script>
+        <script src="{% static 'js/progress/raphael.js' %}"></script>
+        <script src="{% static 'js/progress/progressStep.js' %}"></script>
+        
+        <script>
+            let canvas = null;
+            var GlbBri=0
+            var GlbCrt=0
+            var ImgAtv='';
+            $(document).ready(function () {
+                var $progressDiv = $("#progressBar");
+                var $progressBar = $progressDiv.progressStep();
+                $progressBar.addStep("Esperando");
+                $progressBar.addStep("Laudando");
+                $progressBar.addStep("Liberado");
+    
+                $progressBar.setCurrentStep({{ solicitacao.data.idstatus }});
+                $progressBar.refreshLayout();
+    
+            });
+        function controlIMG(image, crtls, bring) {
+    
+                var sp1 = document.createElement("img");
+                var sp2 = document.getElementById('imageViewer');
+                var divPai = sp2.parentNode;
+                divPai.insertBefore(sp1, sp2.nextSibling);
+    
+                $("canvas").remove();
+    
+                try {
+                    var canvas = fx.canvas();
+                } catch (e) {
+                    alert('Navegador não suportado!!!');
+                    return;
+                }
+    
+                // convert the image to a texture
+                var texture = canvas.texture(sp2);
+    
+                canvas.draw(texture).brightnessContrast(bring, crtls).update();
+                texture.destroy();
+    
+                sp1.parentNode.insertBefore(canvas, sp1);
+                sp1.parentNode.removeChild(sp1);
+    
+        }
+        </script>
+        
+    </head>
+    <body>
+        <div class="row-container">
+            <div class="row row-header align-items-center">
+                <div class="col-xs-1 text-center">
+                    <img src="{% static 'img/logo-hcn.png' %}" width="185" height="55">
+                </div>
+            </div>
+    
+            <div class="container container-lg">
+                <div class="card mb-3 row ">
+                    <div class="col-sm card-body rounded-pill ">
+                        <img src="{% static 'img/paciente.png' %}">
+                        <h5 class="card-title">Paciente</h5>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <p class="text-custom"><strong>Nome do Paciente:</strong></p>
+                                <p>{{ paciente.paciente }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="text-custom"><strong>Sexo:</strong></p>
+                                <p>{{ paciente.sexo }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="text-custom"><strong>Nascimento:</strong></p>
+                                <p>{{ paciente.nascimento }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card-body rounded-pill">
+                    <div id="progressBar" style="height: 100px"></div>
+                </div>
+    
+               <!-- <div class="card-body rounded-pill">
+                    <div id="progressBar"  class="mb-3" style="height: 50px"></div>
+                </div>
+    
+                <div class="center-progress">
+                    <div id="progressBar" style="height: 100px"></div>
+                </div>-->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 mb-3 ">
+                                <!-- Centraliza a imagem -->
+                                <img src="{% static 'img/resultados.png' %}" class="img-fluid" alt="Resultados">
+                            </div>
+                            <div class="col-12">
+                                <!-- Garantir que o título esteja em uma linha própria -->
+                                <h5 class="card-title ">Resultados</h5>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 col-12 mb-3">
+                                    <p class="text-custom"><strong>Descrição do Exame:</strong></p>
+                                    <p>{{ solicitacao.data.laudo }}</p>
+                                </div>
+                                <div class="col-md-3 col-6 mb-3">
+                                    <p class="text-custom"><strong>Modalidade:</strong></p>
+                                    <p>{{ solicitacao.data.modalidade }}</p>
+                                </div>
+                                <div class="col-md-3 col-6 mb-3">
+                                    <p class="text-custom"><strong>Data do Exame:</strong></p>
+                                    <p>{{ solicitacao.data.dataExame }}</p>
+                                </div>
+                
+                                <div class="col-12">
+                                    <p class="text-custom"><strong>Arquivos</strong></p>
+                                </div>
+                
+                                <div class="col-12">
+                                    <div class="row">
+                                        <!-- Ajustando os botões para ficarem empilhados em telas menores -->
+                                        {% for imagens in solicitacao.data.imagens %}
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <a href="{{ imagens.link }}" target="_blank">
+                                                <button id="btn-baixar" class="form-button btn" type="button">
+                                                    <p class="btn-baixar">Arquivo ZIP</p>
+                                                    <h5 class="btn-exame">Imagens do Exame
+                                                        <img src="{% static 'img/down.png' %}">
+                                                    </h5>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                
+                                        {% for arquivo in solicitacao.data.arquivo %}
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <a href="{{ arquivo.link|default_if_none:'' }}" target="_blank">
+                                                <button id="btn-baixar"class="form-button btn" type="button">
+                                                    <p class="btn-baixar">Arquivo PDF</p>
+                                                    <h5 class="btn-exame">Laudo
+                                                        <img src="{% static 'img/down.png' %}">
+                                                    </h5>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Redes sociais e footer -->
+            <div class="row-social d-flex justify-content-center">
+                <div class="social-item" style="cursor: pointer;" onclick="location.href='https://www.instagram.com/hospitaldocoracao'"><i class="fa-brands fa-instagram fa-2xl"></i></div>
+                <div class="social-item" style="cursor: pointer;" onclick="location.href='https://x.com/hcdenatal'"><i class="fa-brands fa-x-twitter fa-2xl"></i></div>
+                <div class="social-item" style="cursor: pointer;" onclick="location.href='https://www.facebook.com/hcdenatal'"><i class="fa-brands fa-facebook fa-2xl"></i></div>
+                <div class="social-item" style="cursor: pointer;" onclick="location.href='https://www.linkedin.com/company/hospitaldocoracao/'"><i class="fa-brands fa-linkedin fa-2xl"></i></div>
+            </div>
+    
+            <div class="footer-patroci d-flex flex-sm-row justify-content-center align-items-center flex-column">
+                <div class="footer-img"><img src="{% static 'img/footer-hcn.png' %}"></div>
+                <div class="footer-img"><img src="{% static 'img/footer-athena.png' %}"></div>
+                <div onclick="location.href='http://servicerapide.com.br'" class="footer-img"><img src="{% static 'img/logo-service-azulhc.png' %}"></div>
+            </div>
+            <div class="row row-footer-ass">
+                <div class="col-xs-12 text-center">
+                    <span>Rua Cel. Auris Coelho, 235 - Lagoa Nova, Natal/RN
+                    <br>CEP: 59075-050 | Telefone: (84) 4009-2000</span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button onclick="location.href='https://goo.gl/maps/MZoKizX95Eaa8wa59'" class="btn-local">COMO CHEGAR</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
